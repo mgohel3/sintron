@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+  <!-- aside/sidebar Start -->
+  {% include 'mainapp/sidebar.html' %}
+  <!-- aside/sidebar End -->
+
+<main class="dashboard-main">
+    <!-- Dashboard Nav Start -->
+    {% include 'mainapp/nav.html' %}
+    <!-- Dashboard Nav End -->
+
+    <div class="dashboard-main-body">
+
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-24">
+        <h6 class="fw-semibold mb-0">Download PDF Setting</h6>
+        <ul class="d-flex align-items-center gap-2">
+            <li class="fw-medium">
+            <a href="index.html" class="d-flex align-items-center gap-1 hover-text-primary">
+                <iconify-icon icon="solar:home-smile-angle-outline" class="icon text-lg"></iconify-icon>
+                Dashboard
+            </a>
+            </li>
+            <li>-</li>
+            <li class="fw-medium">PDF Setting</li>
+        </ul>
+        </div>
+
+        <div class="card basic-data-table">
+        <div class="card-header d-flex justify-content-between">
+            <h5 class="card-title mb-0">Only Logo Images Function is Available Now</h5>
+        </div>
+
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Save Settings</button>
+            </form>
+        </div>
+    </div>
+    </div>
+
+    <!-- Footer Start -->
+    {% include 'mainapp/footer.html' %}
+    <!-- Footer End -->
+
+</main>
+{% endblock %}
